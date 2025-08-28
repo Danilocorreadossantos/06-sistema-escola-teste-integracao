@@ -1,0 +1,16 @@
+{
+  "name": "sistema-escola-teste-integracao",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest",
+    "test-coverage": "jest --coverage"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "Sistema de gerenciamento escolar com alunos e cursos",
+  "dependencies": {
+    "jest": "^30.0.5"
+  }
+}
