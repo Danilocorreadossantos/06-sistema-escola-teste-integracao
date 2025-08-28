@@ -1,24 +1,24 @@
 const cursoModel = require("./curso.model");
 
-function criarCursoo(nome, descricao, cargaHoraria, categoria, preco) {
+function criarCurso(nome, descricao, cargaHoraria, categoria, preco) {
   // Validação: Nome é obrigatório
   if (!nome) {
-    return "ERRO: Nome do curso é obrigatórios!";
+    return "Erro: Nome do curso é obrigatório!";
   }
 
   // Validação: Descrição é obrigatória
   if (!descricao) {
-    return "ERRO: Descrição do curso é obrigatóriaaa!";
+    return "Erro: Descrição do curso é obrigatória!";
   }
 
   // Validação: Carga horária é obrigatória e deve ser positiva
   if (!cargaHoraria || cargaHoraria <= 0) {
-    return "ERRO: Carga horária deve ser um numero positivo!";
+    return "Erro: Carga horária deve ser um número positivo!";
   }
 
   // Validação: Preço é obrigatório e deve ser positivo
   if (preco === undefined || preco === null || preco < 0) {
-    return "ERRO: Preço deve ser um numero maior ou igual a zero!";
+    return "Erro: Preço deve ser um número maior ou igual a zero!";
   }
 
   const novoCurso = cursoModel.criarCurso(nome, descricao, cargaHoraria, categoria, preco);
@@ -30,34 +30,34 @@ function listarCursos() {
   return cursoModel.listarTodosCursos();
 }
 
-function buscarCursoPorNomee(nome) {
+function buscarCursoPorNome(nome) {
   if (!nome) {
-    return "ERRO: Nome é obrigatórios para busca";
+    return "Erro: Nome é obrigatório para busca";
   }
 
   return cursoModel.buscarCursoPorNome(nome);
 }
 
-function buscarCursoPorCategoriaa(categoria) {
+function buscarCursoPorCategoria(categoria) {
   if (!categoria) {
-    return "ERRO: Categoria é obrigatóriaaa para buscaa";
+    return "Erro: Categoria é obrigatória para busca";
   }
 
   return cursoModel.buscarCursoPorCategoria(categoria);
 }
 
-function buscarCursoPorCargaHorariaa(cargaHoraria) {
+function buscarCursoPorCargaHoraria(cargaHoraria) {
   if (!cargaHoraria || cargaHoraria <= 0) {
-    return "ERRO: Carga horária deve ser um numero positivoo para busca";
+    return "ERRO: Carga horária deve ser um número positivoo para busca";
   }
 
   return cursoModel.buscarCursoPorCargaHoraria(cargaHoraria);
 }
 
 module.exports = {
-  criarCursoo,
+  criarCurso,
   listarCursos,
-  buscarCursoPorNomee,
-  buscarCursoPorCategoriaa,
-  buscarCursoPorCargaHorariaa
+  buscarCursoPorNome,
+  buscarCursoPorCategoria,
+  buscarCursoPorCargaHoraria
 };

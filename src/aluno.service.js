@@ -18,7 +18,7 @@ function criarAluno(nome, email, cpf, dataNascimento, telefone) {
 
   // Validação: CPF é obrigatório
   if (!cpf || cpf.trim() === '') {
-    return "Erro: CPF é obrigatórios!";
+    return "Erro: CPF é obrigatório!";
   }
 
   // Validação: CPF deve ter 11 dígitos
@@ -52,9 +52,9 @@ function listarAlunos() {
   return alunoModel.listarTodosAlunos();
 }
 
-function buscarAlunoPorNomee(nome) {
+function buscarAlunoPorNome(nome) {
   if (!nome || nome.trim() === '') {
-    return "Erro: Nome é obrigatório para buscaa";
+    return "Erro: Nome é obrigatório para busca";
   }
 
   return alunoModel.buscarAlunoPorNome(nome);
@@ -71,6 +71,6 @@ function buscarAlunoPorEmail(email) {
 module.exports = {
   criarAluno,
   listarAlunos,
-  buscarAlunoPorNomee,
+  buscarAlunoPorNome,
   buscarAlunoPorEmail
 };
