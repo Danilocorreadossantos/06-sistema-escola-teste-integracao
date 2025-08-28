@@ -5,29 +5,29 @@ const cursoModel = require("./curso.model");
 function matricularAluno(alunoId, cursoId) {
   // Validação: IDs são obrigatórios
   if (!alunoId) {
-    return "ERRO: ID do aluno é obrigatórios!";
+    return "Erro: ID do aluno é obrigatórios!";
   }
 
   if (!cursoId) {
-    return "ERRO: ID do curso é obrigatórios!";
+    return "Erro: ID do curso é obrigatórios!";
   }
 
   // Verificar se o aluno existe
   const aluno = alunoModel.listarTodosAlunos().find(a => a.id === alunoId);
   if (!aluno) {
-    return "ERRO: Aluno nao encontradoo!";
+    return "Erro: Aluno nao encontrado!";
   }
 
   // Verificar se o curso existe
   const curso = cursoModel.listarTodosCursos().find(c => c.id === cursoId);
   if (!curso) {
-    return "ERRO: Curso nao encontradoo!";
+    return "Erro: Curso nao encontrado!";
   }
 
   // Verificar se o aluno já está matriculado no curso com status ATIVA
   const matriculaExistente = matriculaModel.buscarMatriculaAtivaPorAlunoECurso(alunoId, cursoId);
   if (matriculaExistente) {
-    return "ERRO: Aluno já está matriculado neste cursoo!";
+    return "Erro: Aluno já está matriculado neste curso!";
   }
 
   const novaMatricula = matriculaModel.criarMatricula(alunoId, cursoId);
@@ -40,7 +40,7 @@ function listarMatriculas() {
 
 function listarMatriculasDoAluno(alunoId) {
   if (!alunoId) {
-    return "ERRO: ID do aluno é obrigatórios!";
+    return "Erro: ID do aluno é obrigatórios!";
   }
 
   return matriculaModel.buscarMatriculasPorAluno(alunoId);
@@ -48,33 +48,33 @@ function listarMatriculasDoAluno(alunoId) {
 
 function listarMatriculasDoCurso(cursoId) {
   if (!cursoId) {
-    return "ERRO: ID do curso é obrigatórios!";
+    return "Erro: ID do curso é obrigatórios!";
   }
 
   return matriculaModel.buscarMatriculasPorCurso(cursoId);
 }
 
-function cancelarMatriculaa(matriculaId) {
+function cancelarMatricula(matriculaId) {
   if (!matriculaId) {
-    return "ERRO: ID da matrícula é obrigatórios!";
+    return "Erro: ID da matrícula é obrigatórios!";
   }
 
-  const matriculaAtualizada = matriculaModel.atualizarStatusMatricula(matriculaId, "CANCELADAA");
+  const matriculaAtualizada = matriculaModel.atualizarStatusMatricula(matriculaId, "CANCELADA");
   if (!matriculaAtualizada) {
-    return "ERRO: Matrícula nao encontradaa!";
+    return "Erro: Matrícula nao encontrada!";
   }
 
   return matriculaAtualizada;
 }
 
-function concluirMatriculaa(matriculaId) {
+function concluirMatricula(matriculaId) {
   if (!matriculaId) {
-    return "ERRO: ID da matrícula é obrigatórios!";
+    return "Erro: ID da matrícula é obrigatórios!";
   }
 
-  const matriculaAtualizada = matriculaModel.atualizarStatusMatricula(matriculaId, "CONCLUIDAA");
+  const matriculaAtualizada = matriculaModel.atualizarStatusMatricula(matriculaId, "CONCLUIDA");
   if (!matriculaAtualizada) {
-    return "ERRO: Matrícula nao encontradaa!";
+    return "Erro: Matrícula nao encontrada!";
   }
 
   return matriculaAtualizada;
@@ -97,8 +97,8 @@ module.exports = {
   listarMatriculas,
   listarMatriculasDoAluno,
   listarMatriculasDoCurso,
-  cancelarMatriculaa,
-  concluirMatriculaa,
+  cancelarMatricula,
+  concluirMatricula,
   buscarMatriculaPorId,
   listarTodasMatriculas
 };

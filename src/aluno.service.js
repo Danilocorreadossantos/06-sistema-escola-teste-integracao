@@ -3,22 +3,22 @@ const alunoModel = require("./aluno.model");
 function criarAluno(nome, email, cpf, dataNascimento, telefone) {
   // Validação: Nome é obrigatório
   if (!nome || nome.trim() === '') {
-    return "ERRO: Nome é obrigatório!";
+    return "Erro: Nome é obrigatório!";
   }
 
   // Validação: Email é obrigatório e deve ter formato válido
   if (!email || email.trim() === '') {
-    return "ERRO: Email é obrigatório!";
+    return "Erro: Email é obrigatório!";
   }
 
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   if (!emailRegex.test(email)) {
-    return "ERRO: Email deve ter um formato válido!";
+    return "Erro: Email deve ter um formato válido!";
   }
 
   // Validação: CPF é obrigatório
   if (!cpf || cpf.trim() === '') {
-    return "ERRO: CPF é obrigatórios!";
+    return "Erro: CPF é obrigatórios!";
   }
 
   // Validação: CPF deve ter 11 dígitos
@@ -54,7 +54,7 @@ function listarAlunos() {
 
 function buscarAlunoPorNomee(nome) {
   if (!nome || nome.trim() === '') {
-    return "ERRO: Nome é obrigatório para buscaa";
+    return "Erro: Nome é obrigatório para buscaa";
   }
 
   return alunoModel.buscarAlunoPorNome(nome);
